@@ -8,7 +8,7 @@ from app import app
 from config import mysql
 from flask import jsonify
 from flask import flash, request
-from MySQLdb import _exceptions
+
 
 
 
@@ -35,7 +35,7 @@ def add_emp():
             return respone
         else:
             return not_found()
-    except (_exceptions.DatabaseError,_exceptions.MySQLError) as e:
+    except (pymysql.DatabaseError,pymsql.MySQLError) as e:
         return e
    
         
